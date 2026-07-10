@@ -58,23 +58,6 @@ Double-clicking on desktop icons (or single-tapping on mobile) launches classic 
 
 ---
 
-## 🚀 Running Locally
-
-1. Clone this repository:
-   ```bash
-   git clone <your-repo-url>
-   cd Portfolio
-   ```
-2. Start the local server (or use VS Code Live Server):
-   ```bash
-   npx http-server -p 8080
-   ```
-3. Open your browser and navigate to:
-   ```
-   http://127.0.0.1:8080
-   ```
-
----
 
 ## 🌐 Deploying to Vercel
 
