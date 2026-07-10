@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="blue">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjay J - Windows XP Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for system font feeling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tahoma:wght@400;700&family=Outfit:wght@400;600;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <meta name="description" content="Nostalgic Windows XP styled portfolio for Sanjay J, Computer Science Engineering Student. Draggable windows, custom themes, and functional desktop widgets.">
+    <link rel="icon" type="image/png" href="avatar.png">
+</head>
+<body>
+
+    <!-- Audio Elements -->
+    <audio id="snd-startup" src="audio/windows-xp-startup.mp3" preload="auto"></audio>
+    <audio id="snd-shutdown" src="audio/windows xp shutdown.mp3" preload="auto"></audio>
+    <audio id="snd-open" src="audio/flle or app open.mp3" preload="auto"></audio>
+
+    <!-- 1. OS Boot / Logon Screen Overlay -->
+    <div id="logon-screen" class="logon-screen">
+        <div class="logon-top-panel"></div>
+        <div class="logon-middle-panel">
+            <div class="logon-left-side">
+                <div class="xp-logo-container">
+                    <img src="windowsicon.png" alt="Windows Logo" class="logon-logo-img">
+                    <span class="xp-logo-text">Microsoft</span>
+                    <span class="xp-logo-title">Windows<span class="xp-logo-tm">®</span></span>
+                    <span class="xp-logo-subtitle">XP</span>
+                </div>
+            </div>
+            <div class="logon-divider"></div>
+            <div class="logon-right-side">
+                <div class="logon-instruction">To begin, click your user name</div>
+                <div id="logon-user-btn" class="logon-user-card">
+                    <div class="logon-avatar-wrapper">
+                        <img src="avatar.png" alt="Sanjay J Avatar" class="logon-avatar-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23ccc\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';">
+                    </div>
+                    <div class="logon-user-info">
+                        <div class="logon-username">Sanjay J</div>
+                        <div class="logon-userstatus">Computer Science & Engineering Student</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logon-bottom-panel">
+            <div class="logon-footer-btn" id="logon-shutdown">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#d32f2f">
+                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A1,1 0 0,0 11,7V11H7A1,1 0 0,0 6,12A1,1 0 0,0 7,13H11V17A1,1 0 0,0 12,18A1,1 0 0,0 13,17V13H17A1,1 0 0,0 18,12A1,1 0 0,0 17,11H13V7A1,1 0 0,0 12,6Z"/>
+                </svg>
+                <span>Turn off computer</span>
+            </div>
+            <div class="logon-copyright">Copyright © 1985-2001 Microsoft Corporation</div>
+        </div>
+    </div>
+
+    <!-- 2. Shutdown Screen Overlay -->
+    <div id="shutdown-screen" class="shutdown-screen hidden">
+        <div class="shutdown-dialog">
+            <div class="shutdown-dialog-header">
+                <span>Turn off computer</span>
+                <span class="xp-logo-mini">Windows<sup>XP</sup></span>
+            </div>
+            <div class="shutdown-dialog-body">
+                <div class="shutdown-option" id="btn-standby">
+                    <div class="shutdown-icon standby">
+                        <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M12,2C11.45,2 11,2.45 11,3V13C11,13.55 11.45,14 12,14C12.55,14 13,13.55 13,13V3C13,2.45 12.55,2 12,2M16.56,5.44C16.17,5.83 16.17,6.46 16.56,6.85C19.84,10.13 19.84,15.47 16.56,18.75C13.28,22.03 7.94,22.03 4.66,18.75C1.38,15.47 1.38,10.13 4.66,6.85C5.05,6.46 5.05,5.83 4.66,5.44C4.27,5.05 3.64,5.05 3.25,5.44C-0.86,9.55 -0.86,16.23 3.25,20.34C7.36,24.45 14.04,24.45 18.15,20.34C22.26,16.23 22.26,9.55 18.15,5.44C17.76,5.05 17.13,5.05 16.56,5.44Z"/></svg>
+                    </div>
+                    <span>Stand By</span>
+                </div>
+                <div class="shutdown-option" id="btn-turnoff">
+                    <div class="shutdown-icon turnoff">
+                        <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M12,2A10,10 0 1,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 1,1 20,12A8,8 0 0,1 12,20M11,7H13V13H11V7M11,15H13V17H11V15"/></svg>
+                    </div>
+                    <span>Turn Off</span>
+                </div>
+                <div class="shutdown-option" id="btn-restart">
+                    <div class="shutdown-icon restart">
+                        <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M19,8L15,12H18A6,6 0 0,1 12,18C11,18 10.1,17.7 9.3,17.2L7.9,18.6C9.1,19.5 10.5,20 12,20A8,8 0 0,0 20,12H23L19,8M6,12A6,6 0 0,1 12,6C13,6 13.9,6.3 14.7,6.8L16.1,5.4C14.9,4.5 13.5,4 12,4A8,8 0 0,0 4,12H1L5,16L9,12H6Z"/></svg>
+                    </div>
+                    <span>Restart</span>
+                </div>
+            </div>
+            <div class="shutdown-dialog-footer">
+                <button class="xp-btn" id="btn-cancel-shutdown">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Screen of Death / Actually Off state -->
+    <div id="black-screen" class="black-screen hidden">
+        <div class="off-message">
+            <p>It is now safe to turn off your computer.</p>
+            <button id="btn-reboot" class="xp-btn">Power On / Reboot</button>
+        </div>
+    </div>
+
+    <!-- 4. Desktop Area -->
+    <div class="desktop" id="desktop">
+        
+        <!-- Grid of Icons -->
+        <div class="desktop-grid">
+            <!-- My Computer -->
+            <div class="desktop-icon" data-window="win-my-computer" tabindex="0">
+                <div class="icon-image">
+                    <img src="mycomputericon.png" alt="My Computer" width="36" height="36" style="filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));">
+                </div>
+                <div class="icon-label">My Computer</div>
+            </div>
+
+            <!-- Internet Explorer -->
+            <div class="desktop-icon" id="desktop-ie-link" tabindex="0">
+                <div class="icon-image">
+                    <img src="internetexplorericon.png" alt="Internet Explorer" width="36" height="36" style="filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));">
+                </div>
+                <div class="icon-label">Internet Explorer</div>
+            </div>
+
+            <!-- Windows Media Player -->
+            <div class="desktop-icon" data-window="win-mediaplayer" tabindex="0">
+                <div class="icon-image">
+                    <img src="mediaplayericon.png" alt="Windows Media Player" width="36" height="36" style="filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));">
+                </div>
+                <div class="icon-label">Media Player</div>
+            </div>
+
+            <!-- Resume (WordPad Style) -->
+            <div class="desktop-icon" data-window="win-resume" tabindex="0">
+                <div class="icon-image">
+                    <!-- Text doc SVG -->
+                    <svg viewBox="0 0 48 48" width="40" height="40">
+                        <path d="M10,4 L30,4 L38,12 L38,44 L10,44 Z" fill="#ffffff" stroke="#1f40b2" stroke-width="2"/>
+                        <polygon points="30,4 30,12 38,12" fill="#d1e3f8" stroke="#1f40b2" stroke-width="2"/>
+                        <line x1="14" y1="16" x2="26" y2="16" stroke="#5b5a67" stroke-width="2"/>
+                        <line x1="14" y1="22" x2="34" y2="22" stroke="#5b5a67" stroke-width="2"/>
+                        <line x1="14" y1="28" x2="34" y2="28" stroke="#5b5a67" stroke-width="2"/>
+                        <line x1="14" y1="34" x2="30" y2="34" stroke="#5b5a67" stroke-width="2"/>
+                        <line x1="14" y1="40" x2="24" y2="40" stroke="#5b5a67" stroke-width="2"/>
+                        <!-- Small red/blue letter icon logo -->
+                        <rect x="28" y="32" width="8" height="8" fill="#d32f2f"/>
+                        <text x="30" y="39" font-family="Tahoma" font-weight="bold" font-size="8" fill="white">W</text>
+                    </svg>
+                </div>
+                <div class="icon-label">Sanjay J Resume</div>
+            </div>
+
+            <!-- Projects Folder -->
+            <div class="desktop-icon" data-window="win-projects" tabindex="0">
+                <div class="icon-image">
+                    <img src="myprojectsicon.png" alt="My Projects" width="36" height="36" style="filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));">
+                </div>
+                <div class="icon-label">My Projects</div>
+            </div>
+
+            <!-- Settings / Control Panel -->
+            <div class="desktop-icon" data-window="win-settings" tabindex="0">
+                <div class="icon-image">
+                    <img src="controlpanelicon.png" alt="Control Panel" width="36" height="36" style="filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));">
+                </div>
+                <div class="icon-label">Control Panel</div>
+            </div>
+
+            <!-- Minesweeper Game -->
+            <div class="desktop-icon" data-window="win-minesweeper" tabindex="0">
+                <div class="icon-image">
+                    <img src="mineswepericon.png" alt="Minesweeper" width="36" height="36" style="filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));">
+                </div>
+                <div class="icon-label">Minesweeper</div>
+            </div>
+
+            <!-- Recycle Bin -->
+            <div class="desktop-icon" data-window="win-recycle-bin" tabindex="0">
+                <div class="icon-image">
+                    <img src="recyclebinicon.png" alt="Recycle Bin" width="36" height="36" style="filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));">
+                </div>
+                <div class="icon-label">Recycle Bin</div>
+            </div>
+
+            <!-- Zombie Invasion -->
+            <div class="desktop-icon" data-window="win-zombieinvasion" tabindex="0">
+                <div class="icon-image">
+                    <img src="zombieinvasionicon.png" alt="ZombieInvasion" width="36" height="36" style="border-radius: 4px; filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%237f7f7f\'><path d=\'M21 6H12L10 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z\'/></svg>';">
+                </div>
+                <div class="icon-label">ZombieInvasion</div>
+            </div>
+        </div>
+
+        <!-- Windows Container -->
+        <div id="windows-container">
+
+            <!-- A. Window Template (My Computer) -->
+            <div id="win-my-computer" class="xp-window hidden" style="width: 550px; height: 380px; top: 10%; left: 15%;">
+                <div class="xp-window-title-bar">
+                    <div class="xp-window-title">
+                        <img src="mycomputericon.png" alt="" width="16" height="16" class="title-icon">
+                        <span>My Computer</span>
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-btn-minimize" aria-label="Minimize"></button>
+                        <button class="xp-btn-maximize" aria-label="Maximize"></button>
+                        <button class="xp-btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+                <!-- Menu Bar -->
+                <div class="xp-menu-bar">
+                    <span class="xp-menu-item"><u>F</u>ile</span>
+                    <span class="xp-menu-item"><u>E</u>dit</span>
+                    <span class="xp-menu-item"><u>V</u>iew</span>
+                    <span class="xp-menu-item"><u>H</u>elp</span>
+                </div>
+                <!-- Window Body -->
+                <div class="xp-window-body">
+                    <div class="computer-info-layout">
+                        <div class="computer-sidebar">
+                            <div class="sidebar-box">
+                                <div class="sidebar-title">System Tasks</div>
+                                <ul class="sidebar-list">
+                                    <li class="sidebar-link" onclick="openWindow('win-settings')">View system info</li>
+                                    <li class="sidebar-link" onclick="openWindow('win-resume')">View Resume</li>
+                                    <li class="sidebar-link" onclick="openWindow('win-projects')">Explore Projects</li>
+                                </ul>
+                            </div>
+                            <div class="sidebar-box">
+                                <div class="sidebar-title">Other Places</div>
+                                <ul class="sidebar-list">
+                                    <li class="sidebar-link" id="places-lnk-linkedin">My LinkedIn</li>
+                                    <li class="sidebar-link" id="places-lnk-github">My GitHub</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="computer-main-content">
+                            <div class="section-title-xp">System Information</div>
+                            <div class="info-row">
+                                <div class="info-bold">System:</div>
+                                <div>Microsoft Windows XP Professional<br>Version 2026, Service Pack 3</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-bold">Owner:</div>
+                                <div>Sanjay J<br>Computer Science & Engineering Student</div>
+                            </div>
+                            <div class="section-title-xp">Education & Profile</div>
+                            <div class="info-row">
+                                <div class="info-bold">Institution:</div>
+                                <div>Loyola-ICAM College of Engineering And Technology (LICET), Chennai</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-bold">Department:</div>
+                                <div>B.E. Computer Science and Engineering (2024 - 2027)</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-bold">Interests:</div>
+                                <div>Decentralized systems, Deep Learning, UI/UX, Game Development, Sailing & Rowing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B. Window Template (Notepad / Resume) -->
+            <div id="win-resume" class="xp-window hidden" style="width: 700px; height: 500px; top: 5%; left: 20%;">
+                <div class="xp-window-title-bar">
+                    <div class="xp-window-title">
+                        <svg viewBox="0 0 48 48" width="16" height="16" class="title-icon">
+                            <path d="M10,4 L30,4 L38,12 L38,44 L10,44 Z" fill="#ffffff" stroke="#1f40b2" stroke-width="2"/>
+                            <polygon points="30,4 30,12 38,12" fill="#d1e3f8" stroke="#1f40b2" stroke-width="2"/>
+                        </svg>
+                        <span>Sanjay J Resume - WordPad</span>
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-btn-minimize" aria-label="Minimize"></button>
+                        <button class="xp-btn-maximize" aria-label="Maximize"></button>
+                        <button class="xp-btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+                <!-- WordPad Menu Bar -->
+                <div class="xp-menu-bar">
+                    <span class="xp-menu-item"><u>F</u>ile</span>
+                    <span class="xp-menu-item" id="btn-download-pdf"><u>D</u>ownload PDF</span>
+                    <span class="xp-menu-item"><u>E</u>dit</span>
+                    <span class="xp-menu-item"><u>V</u>iew</span>
+                    <span class="xp-menu-item"><u>H</u>elp</span>
+                </div>
+                <!-- WordPad Ruler and Format Bar -->
+                <div class="wordpad-format-bar">
+                    <select class="wordpad-font-select" aria-label="Font family"><option>Tahoma</option><option>Courier Prime</option><option>Arial</option></select>
+                    <select class="wordpad-size-select" aria-label="Font size"><option>10</option><option>12</option><option>14</option><option>18</option></select>
+                    <div class="format-buttons">
+                        <button class="format-btn bold">B</button>
+                        <button class="format-btn italic">I</button>
+                        <button class="format-btn underline">U</button>
+                        <span class="format-divider">|</span>
+                        <button class="format-btn align-left active">≡</button>
+                        <button class="format-btn align-center">≡</button>
+                        <button class="format-btn align-right">≡</button>
+                    </div>
+                </div>
+                <!-- Window Body -->
+                <div class="xp-window-body scrollable-body beige-bg">
+                    <div class="wordpad-page">
+                        <div class="wordpad-header">
+                            <h1>SANJAY JAYACHANDRAN</h1>
+                            <p class="subtitle">Computer Science & Engineering Student | Developer | Sailor</p>
+                            <p class="contact-info">
+                                Chennai, India 600011 | +91 9566125287 | 
+                                <a href="mailto:sanjay.27csb@licet.ac.in">sanjay.27csb@licet.ac.in</a>
+                            </p>
+                            <p class="social-links">
+                                GitHub: <a href="https://github.com/Sanjaylicet" target="_blank">github.com/Sanjaylicet</a> | 
+                                LinkedIn: <a href="https://www.linkedin.com/in/sanjayjaya2004" target="_blank">linkedin.com/in/sanjayjaya2004</a>
+                            </p>
+                        </div>
+                        
+                        <div class="wordpad-section">
+                            <h2>EDUCATION</h2>
+                            <hr class="wordpad-hr">
+                            <div class="resume-item">
+                                <div class="resume-item-header">
+                                    <span class="bold">Bachelor of Engineering in Computer Science</span>
+                                    <span>2024 - 2027</span>
+                                </div>
+                                <div class="italic">Loyola-ICAM College of Engineering And Technology (LICET), Chennai</div>
+                            </div>
+                        </div>
+
+                        <div class="wordpad-section">
+                            <h2>TECHNICAL SKILLS</h2>
+                            <hr class="wordpad-hr">
+                            <ul class="resume-list">
+                                <li><strong>Languages / Web:</strong> HTML/CSS, SQL, Java, TypeScript</li>
+                                <li><strong>Development & Tools:</strong> UI/UX Design (Figma), Hardware Troubleshooting, Camera & Photography Basics</li>
+                                <li><strong>Key Strengths:</strong> Analytical problem solver, eager to learn new tech stacks, strong team collaborator</li>
+                            </ul>
+                        </div>
+
+                        <div class="wordpad-section">
+                            <h2>WORK EXPERIENCE</h2>
+                            <hr class="wordpad-hr">
+                            <div class="resume-item">
+                                <div class="resume-item-header">
+                                    <span class="bold">Customer Relationship Manager</span>
+                                    <span>01/2024 - 08/2024</span>
+                                </div>
+                                <div class="italic">hxplain</div>
+                                <ul class="resume-list">
+                                    <li>Managed customer inquiries via email and phone to ensure prompt responses.</li>
+                                    <li>Cultivated strong client relationships through personalized attention and engagement.</li>
+                                    <li>Resolved customer complaints efficiently, enhancing overall satisfaction.</li>
+                                    <li>Collaborated with sales teams to identify and address client needs.</li>
+                                    <li>Trained new staff on customer service protocols and best practices.</li>
+                                    <li>Maintained records of customer interactions in the CRM system and generated reports highlighting improvement areas.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="wordpad-section">
+                            <h2>ACCOMPLISHMENTS</h2>
+                            <hr class="wordpad-hr">
+                            <ul class="resume-list">
+                                <li><strong>PSG Task OPS:</strong> Secured 1st Place at Kriya'25 with a team of four.</li>
+                                <li><strong>Sports:</strong> Won multiple state and local competitions in Sailing and Rowing.</li>
+                            </ul>
+                        </div>
+
+                        <div class="wordpad-section">
+                            <h2>KEY PROJECTS</h2>
+                            <hr class="wordpad-hr">
+                            <div class="resume-item">
+                                <div class="bold">LSTMpredict</div>
+                                <div class="italic">Deep learning stock market forecasting using LSTM, GRU, and Transformers (Infosys Springboard Internship)</div>
+                            </div>
+                            <div class="resume-item">
+                                <div class="bold">Chronos-Kit</div>
+                                <div class="italic">TypeScript integration toolkit built for the Hedera network</div>
+                            </div>
+                            <div class="resume-item">
+                                <div class="bold">TaskOps</div>
+                                <div class="italic">Secure file-sharing system (1st Place winner at Kriya'25)</div>
+                            </div>
+                            <div class="resume-item">
+                                <div class="bold">NovaVault</div>
+                                <div class="italic">DeFi Smart Wallet with account recovery and unified USDC liquidity via Arc/CCTP & Circle MPC</div>
+                            </div>
+                            <div class="resume-item">
+                                <div class="bold">Gamepayx</div>
+                                <div class="italic">Decentralized cross-chain game store asset platform using Avail Nexus SDK</div>
+                            </div>
+                        </div>
+
+                        <div class="wordpad-section">
+                            <h2>LANGUAGES & HOBBIES</h2>
+                            <hr class="wordpad-hr">
+                            <ul class="resume-list">
+                                <li><strong>Languages:</strong> Tamil (Native), English (Upper Intermediate B2)</li>
+                                <li><strong>Hobbies:</strong> Experienced Sailor, Rowing competitor, Free diver</li>
+                            </ul>
+                        </div>
+
+                        <!-- Retro download button at bottom of document -->
+                        <div class="wordpad-footer-download">
+                            <button class="xp-btn xp-btn-primary" id="btn-download-resume-bottom">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align: middle; margin-right: 6px; transform: translateY(-1px);">
+                                    <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                                </svg>
+                                Download Resume (PDF)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C. Window Template (Projects Folder) -->
+            <div id="win-projects" class="xp-window hidden" style="width: 650px; height: 420px; top: 12%; left: 18%;">
+                <div class="xp-window-title-bar">
+                    <div class="xp-window-title">
+                        <img src="myprojectsicon.png" alt="" width="16" height="16" class="title-icon">
+                        <span>My Projects</span>
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-btn-minimize" aria-label="Minimize"></button>
+                        <button class="xp-btn-maximize" aria-label="Maximize"></button>
+                        <button class="xp-btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+                <!-- Explorer Toolbar -->
+                <div class="xp-explorer-toolbar">
+                    <button class="toolbar-btn back-btn" disabled>
+                        <span class="arrow">←</span> Back
+                    </button>
+                    <button class="toolbar-btn forward-btn" disabled>
+                        Forward <span class="arrow">→</span>
+                    </button>
+                    <span class="toolbar-divider">|</span>
+                    <button class="toolbar-btn folders-btn active">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="#1f40b2"><path d="M20,6h-8l-2-2H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8C22,6.9,21.1,6,20,6z"/></svg>
+                        Folders
+                    </button>
+                </div>
+                <!-- Address Bar -->
+                <div class="xp-address-bar">
+                    <span class="address-label">Address</span>
+                    <div class="address-input-box">
+                        <img src="myprojectsicon.png" alt="" width="14" height="14" class="address-folder-icon" style="margin-right: 4px;">
+                        <input type="text" value="C:\Documents and Settings\Sanjay J\My Documents\Projects" readonly class="address-field">
+                    </div>
+                </div>
+                <!-- Window Body -->
+                <div class="xp-window-body">
+                    <div class="explorer-layout">
+                        <!-- Left Folder Tree (Folders sidebar) -->
+                        <div class="explorer-sidebar">
+                            <div class="folder-tree-item root-item">
+                                <span class="tree-toggle open">▼</span>
+                                <span class="tree-icon">
+                                    <img src="myprojectsicon.png" alt="" width="16" height="16" style="vertical-align: middle;">
+                                </span>
+                                <span class="tree-label">My Documents</span>
+                            </div>
+                            <div class="folder-tree-sublist">
+                                <div class="folder-tree-item selected">
+                                    <span class="tree-icon">
+                                        <img src="myprojectsicon.png" alt="" width="16" height="16" style="vertical-align: middle;">
+                                    </span>
+                                    <span class="tree-label">Projects</span>
+                                </div>
+                                <div class="folder-tree-item" onclick="openWindow('win-resume')">
+                                    <span class="tree-icon">📄</span>
+                                    <span class="tree-label">Resume.rtf</span>
+                                </div>
+                                <div class="folder-tree-item" onclick="openWindow('win-settings')">
+                                    <span class="tree-icon">
+                                        <img src="controlpanelicon.png" alt="" width="16" height="16" style="vertical-align: middle;">
+                                    </span>
+                                    <span class="tree-label">Control Panel</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right Folder Contents Grid -->
+                        <div class="explorer-contents scrollable-body" id="projects-grid">
+                            <!-- Project Folder: LSTMpredict -->
+                            <div class="folder-item" data-project-id="lstmpredict">
+                                <div class="folder-icon-img"><img src="myprojectsicon.png" width="32" height="32"></div>
+                                <div class="folder-item-label">LSTMpredict</div>
+                            </div>
+                            <!-- Project Folder: Chronos-Kit -->
+                            <div class="folder-item" data-project-id="chronos-kit">
+                                <div class="folder-icon-img"><img src="myprojectsicon.png" width="32" height="32"></div>
+                                <div class="folder-item-label">Chronos-Kit</div>
+                            </div>
+                            <!-- Project Folder: TaskOps -->
+                            <div class="folder-item" data-project-id="taskops">
+                                <div class="folder-icon-img"><img src="myprojectsicon.png" width="32" height="32"></div>
+                                <div class="folder-item-label">TaskOps</div>
+                            </div>
+                            <!-- Project Folder: NovaVault -->
+                            <div class="folder-item" data-project-id="novavault">
+                                <div class="folder-icon-img"><img src="myprojectsicon.png" width="32" height="32"></div>
+                                <div class="folder-item-label">NovaVault</div>
+                            </div>
+                            <!-- Project Folder: Gamepayx -->
+                            <div class="folder-item" data-project-id="gamepayx">
+                                <div class="folder-icon-img"><img src="myprojectsicon.png" width="32" height="32"></div>
+                                <div class="folder-item-label">Gamepayx</div>
+                            </div>
+                            <!-- Project Folder: Zombie Invasion -->
+                            <div class="folder-item" data-project-id="zombie-invasion">
+                                <div class="folder-icon-img"><img src="zombieinvasionicon.png" width="32" height="32" style="border-radius: 3px;"></div>
+                                <div class="folder-item-label">Zombie Invasion</div>
+                            </div>
+                            <!-- Project Folder: TYPENINJA -->
+                            <div class="folder-item" data-project-id="typeninja">
+                                <div class="folder-icon-img"><img src="myprojectsicon.png" width="32" height="32"></div>
+                                <div class="folder-item-label">TYPENINJA</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D. Window Template (Control Panel / Settings) -->
+            <div id="win-settings" class="xp-window hidden" style="width: 500px; height: 360px; top: 20%; left: 25%;">
+                <div class="xp-window-title-bar">
+                    <div class="xp-window-title">
+                        <img src="controlpanelicon.png" alt="" width="16" height="16" class="title-icon">
+                        <span>Control Panel - Appearance Settings</span>
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-btn-minimize" aria-label="Minimize"></button>
+                        <button class="xp-btn-maximize" aria-label="Maximize"></button>
+                        <button class="xp-btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="xp-window-body scrollable-body">
+                    <div class="control-panel-layout">
+                        <div class="cp-section">
+                            <div class="cp-title-bar-theme">Customize Taskbar & Window Color Theme</div>
+                            <p class="cp-desc">Select your preferred classic Windows XP desktop style scheme:</p>
+                            
+                            <div class="theme-options-grid">
+                                <div class="theme-option-card selected" data-theme-val="blue">
+                                    <div class="theme-preview blue-preview">
+                                        <div class="preview-title">Blue (Luna)</div>
+                                        <div class="preview-taskbar"></div>
+                                    </div>
+                                    <div class="theme-name">Classic Blue (Default)</div>
+                                </div>
+                                <div class="theme-option-card" data-theme-val="olive">
+                                    <div class="theme-preview olive-preview">
+                                        <div class="preview-title">Olive Green</div>
+                                        <div class="preview-taskbar"></div>
+                                    </div>
+                                    <div class="theme-name">Homestead Olive</div>
+                                </div>
+                                <div class="theme-option-card" data-theme-val="silver">
+                                    <div class="theme-preview silver-preview">
+                                        <div class="preview-title">Silver</div>
+                                        <div class="preview-taskbar"></div>
+                                    </div>
+                                    <div class="theme-name">Metallic Silver</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cp-section">
+                            <div class="cp-title-bar-theme">System Resources Check</div>
+                            <div class="system-resources-list">
+                                <div class="res-item"><span>Processor:</span> <strong>Web Standard JS Engine v3.5</strong></div>
+                                <div class="res-item"><span>Memory:</span> <strong>Web Browser Sandbox RAM</strong></div>
+                                <div class="res-item"><span>Active User:</span> <strong>Sanjay J (LICET CSE)</strong></div>
+                                <div class="res-item"><span>System OS Type:</span> <strong>32-Bit Nostalgia Environment</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- E. Window Template (Recycle Bin) -->
+            <div id="win-recycle-bin" class="xp-window hidden" style="width: 450px; height: 300px; top: 25%; left: 30%;">
+                <div class="xp-window-title-bar">
+                    <div class="xp-window-title">
+                        <img src="recyclebinicon.png" alt="" width="16" height="16" class="title-icon">
+                        <span>Recycle Bin</span>
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-btn-minimize" aria-label="Minimize"></button>
+                        <button class="xp-btn-maximize" aria-label="Maximize"></button>
+                        <button class="xp-btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="xp-menu-bar">
+                    <span class="xp-menu-item" id="btn-empty-bin"><u>E</u>mpty Recycle Bin</span>
+                    <span class="xp-menu-item"><u>V</u>iew</span>
+                    <span class="xp-menu-item"><u>H</u>elp</span>
+                </div>
+                <div class="xp-window-body scrollable-body scroll-bg-white">
+                    <div class="recycle-bin-layout" id="recycle-bin-list">
+                        <!-- Trash Items -->
+                        <div class="trash-item" data-trash-id="1">
+                            <span class="trash-icon">🗑️</span>
+                            <span class="trash-label">Boring HTML Portfolios.docx</span>
+                            <span class="trash-size">14 KB</span>
+                        </div>
+                        <div class="trash-item" data-trash-id="2">
+                            <span class="trash-icon">🗑️</span>
+                            <span class="trash-label">Plain Text Resume Templates.txt</span>
+                            <span class="trash-size">5 KB</span>
+                        </div>
+                        <div class="trash-item" data-trash-id="3">
+                            <span class="trash-icon">🗑️</span>
+                            <span class="trash-label">Vanilla CSS Alternatives.zip</span>
+                            <span class="trash-size">1,402 KB</span>
+                        </div>
+                    </div>
+                    <div class="empty-bin-message hidden" id="empty-bin-msg">
+                        <p>Recycle Bin is empty.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- F. Window Template (Outlook Express / Contact) -->
+            <div id="win-contact" class="xp-window hidden" style="width: 500px; height: 380px; top: 15%; left: 22%;">
+                <div class="xp-window-title-bar">
+                    <div class="xp-window-title">
+                        <svg viewBox="0 0 48 48" width="16" height="16" class="title-icon">
+                            <path d="M4,10 L44,10 L44,38 L4,38 Z" fill="#ffffff" stroke="#1f40b2" stroke-width="2"/>
+                            <path d="M4,10 L24,26 L44,10" fill="none" stroke="#1f40b2" stroke-width="2"/>
+                        </svg>
+                        <span>New Message - Outlook Express</span>
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-btn-minimize" aria-label="Minimize"></button>
+                        <button class="xp-btn-maximize" aria-label="Maximize"></button>
+                        <button class="xp-btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+                <!-- Menu -->
+                <div class="xp-menu-bar">
+                    <span class="xp-menu-item" id="btn-outlook-send"><u>S</u>end</span>
+                    <span class="xp-menu-item"><u>I</u>nsert</span>
+                    <span class="xp-menu-item"><u>F</u>ormat</span>
+                </div>
+                <!-- Message Headers -->
+                <div class="outlook-headers">
+                    <div class="outlook-header-row">
+                        <span class="header-label">To:</span>
+                        <div class="header-input-box">
+                            <input type="text" value="sanjay.27csb@licet.ac.in" disabled class="header-field">
+                        </div>
+                    </div>
+                    <div class="outlook-header-row">
+                        <span class="header-label">Subject:</span>
+                        <div class="header-input-box">
+                            <input type="text" id="contact-subject" placeholder="Collaboration / Job Opportunity" class="header-field-edit">
+                        </div>
+                    </div>
+                </div>
+                <!-- Window Body -->
+                <div class="xp-window-body text-body-container">
+                    <textarea id="contact-body" class="outlook-textarea" placeholder="Write your email here... Remember to include your contact details!"></textarea>
+                </div>
+            </div>
+
+            <!-- G. Window Template (Calendar Widget Window) -->
+            <div id="win-calendar" class="xp-window hidden calendar-win" style="width: 320px; height: 350px; bottom: 45px; right: 10px; position: absolute;">
+                <div class="xp-window-title-bar">
+                    <div class="xp-window-title">
+                        <span>Date and Time Properties</span>
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="xp-window-body">
+                    <div class="calendar-layout">
+                        <div class="calendar-header-selector">
+                            <select id="cal-month-select" aria-label="Select month">
+                                <option value="0">January</option><option value="1">February</option>
+                                <option value="2">March</option><option value="3">April</option>
+                                <option value="4">May</option><option value="5">June</option>
+                                <option value="6">July</option><option value="7">August</option>
+                                <option value="8">September</option><option value="9">October</option>
+                                <option value="10">November</option><option value="11">December</option>
+                            </select>
+                            <input type="number" id="cal-year-input" value="2026" min="1970" max="2100" class="cal-year-field" aria-label="Select year">
+                        </div>
+                        
+                        <!-- Month Grid -->
+                        <table class="calendar-grid">
+                            <thead>
+                                <tr>
+                                    <th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calendar-days-body">
+                                <!-- Generated Dynamically -->
+                            </tbody>
+                        </table>
+
+                        <div class="calendar-footer-time">
+                            Current Time: <span id="cal-current-time">10:36:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- H. Window Template (Minesweeper Game) -->
+            <div id="win-minesweeper" class="xp-window hidden" style="width: 300px; height: 380px; top: 8%; left: 35%;">
+                <div class="xp-window-title-bar">
+                    <div class="xp-window-title">
+                        <img src="mineswepericon.png" alt="" width="16" height="16" class="title-icon">
+                        <span>Minesweeper</span>
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-btn-minimize" aria-label="Minimize"></button>
+                        <button class="xp-btn-maximize" aria-label="Maximize" disabled></button>
+                        <button class="xp-btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+                <!-- Minesweeper Header Toolbar -->
+                <div class="xp-menu-bar">
+                    <span class="xp-menu-item" id="btn-restart-mines"><u>G</u>ame Restart</span>
+                    <span class="xp-menu-item" id="btn-difficulty-mines"><u>D</u>ifficulty</span>
+                </div>
+                <div class="xp-window-body mine-bg">
+                    <div class="minesweeper-container">
+                        <!-- Scoreboard -->
+                        <div class="mines-scoreboard">
+                            <div class="score-display" id="mines-flag-count">010</div>
+                            <button class="smiley-btn" id="mines-smiley">😊</button>
+                            <div class="score-display" id="mines-timer">000</div>
+                        </div>
+                        <!-- Mine grid -->
+                        <div class="mines-grid" id="mines-grid-board">
+                            <!-- Generated Dynamically (9x9 grid, 10 mines) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- J. Window Template (Windows Media Player) -->
+            <div id="win-mediaplayer" class="xp-window hidden" style="width: 620px; height: 420px; top: 15%; left: 20%;">
+                <div class="xp-window-title-bar">
+                    <div class="xp-window-title">
+                        <img src="mediaplayericon.png" alt="" width="16" height="16" class="title-icon">
+                        <span>Windows Media Player</span>
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-btn-minimize" aria-label="Minimize"></button>
+                        <button class="xp-btn-maximize" aria-label="Maximize"></button>
+                        <button class="xp-btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+                
+                <!-- Menu Bar -->
+                <div class="xp-menu-bar">
+                    <span class="xp-menu-item"><u>F</u>ile</span>
+                    <span class="xp-menu-item"><u>P</u>lay</span>
+                    <span class="xp-menu-item"><u>V</u>iew</span>
+                    <span class="xp-menu-item"><u>H</u>elp</span>
+                </div>
+
+                <div class="xp-window-body wmp-bg">
+                    <div class="wmp-container">
+                        <!-- Main Display: Visualization + Sidebar Playlist -->
+                        <div class="wmp-main">
+                            <!-- Left: Visualization/Cover Area -->
+                            <div class="wmp-screen-area">
+                                <div class="wmp-visualization" id="wmp-viz-screen">
+                                    <div class="wmp-album-art-container">
+                                        <div class="wmp-album-art-spin-wrapper">
+                                            <div class="wmp-album-art" id="wmp-album-art-img">💿</div>
+                                        </div>
+                                    </div>
+                                    <div class="wmp-track-info">
+                                        <div class="wmp-track-title" id="wmp-title-txt">Loading playlist...</div>
+                                        <div class="wmp-track-artist" id="wmp-artist-txt">Windows Media Player</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right: Playlist Sidebar -->
+                            <div class="wmp-sidebar">
+                                <div class="wmp-playlist-title">Playlist</div>
+                                <ul class="wmp-playlist-list" id="wmp-songs-list">
+                                    <!-- Populated dynamically -->
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom Controls -->
+                        <div class="wmp-controls">
+                            <!-- Progress Bar -->
+                            <div class="wmp-progress-container">
+                                <span class="wmp-time" id="wmp-time-current">0:00</span>
+                                <input type="range" class="wmp-progress-slider" id="wmp-progress-bar" value="0" min="0" max="100">
+                                <span class="wmp-time" id="wmp-time-total">0:00</span>
+                            </div>
+                            
+                            <div class="wmp-control-buttons">
+                                <div class="wmp-control-left">
+                                    <button class="wmp-btn" id="wmp-btn-prev" title="Previous">⏮</button>
+                                    <button class="wmp-btn wmp-btn-play" id="wmp-btn-play" title="Play">▶</button>
+                                    <button class="wmp-btn" id="wmp-btn-stop" title="Stop">■</button>
+                                    <button class="wmp-btn" id="wmp-btn-next" title="Next">⏭</button>
+                                </div>
+                                <div class="wmp-control-right">
+                                    <span class="wmp-mute-icon" id="wmp-mute-toggle">🔊</span>
+                                    <input type="range" class="wmp-volume-slider" id="wmp-volume-bar" value="80" min="0" max="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 5. Start Menu (XP style) -->
+    <div id="start-menu" class="start-menu hidden">
+        <!-- Start Menu Header / User Info -->
+        <div class="start-header">
+            <div class="start-avatar-frame">
+                <img src="avatar.png" alt="Sanjay J" class="start-avatar-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23ccc\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';">
+            </div>
+            <div class="start-header-name">Sanjay J</div>
+        </div>
+        <!-- Start Menu Body -->
+        <div class="start-body">
+            <!-- Left Pane: App Links (white/light) -->
+            <div class="start-left-pane">
+                <div class="start-app-item" onclick="openWindow('win-resume')">
+                    <div class="start-app-icon">📄</div>
+                    <div class="start-app-details">
+                        <span class="app-title bold">WordPad Resume</span>
+                        <span class="app-desc">Read and print styled resume text</span>
+                    </div>
+                </div>
+                <div class="start-app-item" onclick="openWindow('win-projects')">
+                    <div class="start-app-icon">
+                        <img src="myprojectsicon.png" alt="" width="24" height="24">
+                    </div>
+                    <div class="start-app-details">
+                        <span class="app-title bold">My Projects</span>
+                        <span class="app-desc">Open individual project repo/demos</span>
+                    </div>
+                </div>
+                <div class="start-app-item" onclick="openWindow('win-contact')">
+                    <div class="start-app-icon">✉️</div>
+                    <div class="start-app-details">
+                        <span class="app-title bold">Outlook Express</span>
+                        <span class="app-desc">Send email inquiries or collaboration proposals</span>
+                    </div>
+                </div>
+                <div class="start-app-item" onclick="openWindow('win-minesweeper')">
+                    <div class="start-app-icon">
+                        <img src="mineswepericon.png" alt="" width="24" height="24">
+                    </div>
+                    <div class="start-app-details">
+                        <span class="app-title bold">Minesweeper</span>
+                        <span class="app-desc">Play a quick classic Windows puzzle game</span>
+                    </div>
+                </div>
+                <div class="start-app-item" onclick="openWindow('win-zombieinvasion')">
+                    <div class="start-app-icon">
+                        <img src="zombieinvasionicon.png" alt="ZombieInvasion" width="24" height="24" style="border-radius: 3px;" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%237f7f7f\'><path d=\'M21 6H12L10 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z\'/></svg>';">
+                    </div>
+                    <div class="start-app-details">
+                        <span class="app-title bold">ZombieInvasion</span>
+                        <span class="app-desc">Play 2D platformer zombie shooter action game</span>
+                    </div>
+                </div>
+                <div class="start-app-item" onclick="openWindow('win-settings')">
+                    <div class="start-app-icon">
+                        <img src="controlpanelicon.png" alt="" width="24" height="24">
+                    </div>
+                    <div class="start-app-details">
+                        <span class="app-title bold">Control Panel</span>
+                        <span class="app-desc">Change the taskbar color theme</span>
+                    </div>
+                </div>
+                <div class="start-app-item" onclick="openWindow('win-mediaplayer')">
+                    <div class="start-app-icon">
+                        <img src="mediaplayericon.png" alt="" width="24" height="24">
+                    </div>
+                    <div class="start-app-details">
+                        <span class="app-title bold">Windows Media Player</span>
+                        <span class="app-desc">Play background music from the music folder</span>
+                    </div>
+                </div>
+                
+                <hr class="start-divider-left">
+                
+                <div class="start-app-item" id="start-ie-link">
+                    <div class="start-app-icon">
+                        <img src="internetexplorericon.png" alt="Internet Explorer" width="24" height="24">
+                    </div>
+                    <div class="start-app-details">
+                        <span class="app-title bold">Internet Explorer</span>
+                        <span class="app-desc">Open official GitHub account page</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Pane: System Links (blueish/darker) -->
+            <div class="start-right-pane">
+                <div class="start-sys-item" onclick="openWindow('win-my-computer')">
+                    <span class="sys-icon">
+                        <img src="mycomputericon.png" alt="" width="16" height="16" style="vertical-align: middle;">
+                    </span>
+                    <span class="sys-label">My Computer</span>
+                </div>
+                <div class="start-sys-item" onclick="openWindow('win-projects')">
+                    <span class="sys-icon">
+                        <img src="myprojectsicon.png" alt="" width="16" height="16" style="vertical-align: middle;">
+                    </span>
+                    <span class="sys-label">My Documents</span>
+                </div>
+                <div class="start-sys-item" onclick="openWindow('win-settings')">
+                    <span class="sys-icon">
+                        <img src="controlpanelicon.png" alt="" width="16" height="16" style="vertical-align: middle;">
+                    </span>
+                    <span class="sys-label">Control Panel</span>
+                </div>
+                <div class="start-sys-item" id="sys-item-linkedin">
+                    <span class="sys-icon">🔗</span>
+                    <span class="sys-label">LinkedIn profile</span>
+                </div>
+                
+                <hr class="start-divider-right">
+                
+                <div class="start-sys-item" id="sys-run-btn">
+                    <span class="sys-icon">
+                        <img src="runicon.png" alt="" width="16" height="16" style="vertical-align: middle;">
+                    </span>
+                    <span class="sys-label">Run...</span>
+                </div>
+            </div>
+        </div>
+        <!-- Start Menu Footer -->
+        <div class="start-footer">
+            <div class="start-footer-btn" id="start-btn-logoff">
+                <div class="logoff-icon">🔑</div>
+                <span>Log Off</span>
+            </div>
+            <div class="start-footer-btn" id="start-btn-shutdown">
+                <div class="shutdown-icon-red">🔴</div>
+                <span>Turn Off Computer</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Run Dialog Window -->
+    <div id="win-run" class="xp-window hidden" style="width: 380px; height: 180px; top: 40%; left: 30%;">
+        <div class="xp-window-title-bar">
+            <div class="xp-window-title">
+                <img src="runicon.png" alt="" width="16" height="16" class="title-icon" style="margin-right: 4px;">
+                <span>Run</span>
+            </div>
+            <div class="xp-window-controls">
+                <button class="xp-btn-close" aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="xp-window-body">
+            <div class="run-dialog-content">
+                <div class="run-prompt">
+                    <img src="runicon.png" alt="Run" width="32" height="32" style="margin-right: 15px; vertical-align: middle;">
+                    <p>Type the name of a program, folder, document, or Internet resource, and Windows will open it for you.</p>
+                </div>
+                <div class="run-input-row">
+                    <label for="run-command-input">Open:</label>
+                    <input type="text" id="run-command-input" class="run-text-input" placeholder="minesweeper, notepad, resume, projects, shutdown...">
+                </div>
+                <div class="run-buttons">
+                    <button class="xp-btn" id="run-btn-ok">OK</button>
+                    <button class="xp-btn" id="run-btn-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Taskbar (bottom) -->
+    <div class="taskbar">
+        <!-- Start Button -->
+        <div class="start-button-container" id="start-btn-trigger">
+            <button class="start-button">
+                <span class="start-flag">
+                    <img src="windowsicon.png" alt="start" width="16" height="16" style="vertical-align: middle; margin-right: 2px;">
+                </span>
+                <span class="start-text">start</span>
+            </button>
+        </div>
+
+        <!-- Taskbar Tabs Container (open windows) -->
+        <div class="taskbar-tabs" id="taskbar-tabs-container">
+            <!-- Dynamically populated e.g. -->
+            <!-- <div class="taskbar-tab active">My Computer</div> -->
+        </div>
+
+        <!-- System Tray -->
+        <div class="system-tray" id="tray-clock-trigger">
+            <div class="tray-icons">
+                <!-- Volume SVG -->
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="white">
+                    <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18.03,19.86 21,16.28 21,12C21,7.72 18.03,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>
+                </svg>
+                <!-- Network SVG -->
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="white">
+                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4M12,18A2,2 0 0,1 10,16A2,2 0 0,1 12,14A2,2 0 0,1 14,16A2,2 0 0,1 12,18M17,13A2,2 0 0,1 15,11A2,2 0 0,1 17,9A2,2 0 0,1 19,11A2,2 0 0,1 17,13M7,13A2,2 0 0,1 5,11A2,2 0 0,1 7,9A2,2 0 0,1 9,11A2,2 0 0,1 7,13Z"/>
+                </svg>
+            </div>
+            <div class="tray-clock" id="tray-clock-text">10:36 PM</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
