@@ -1235,9 +1235,28 @@ let wmpIsPlaying = false;
 let wmpIsMuted = false;
 
 async function loadPlaylistFromMusicFolder() {
+    const defaultSongs = [{
+        url: 'music/Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
+        filename: 'Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
+        title: 'Sunflower (Spider-Man: Into the Spider-Verse)',
+        artist: 'Post Malone, Swae Lee'
+    }];
+
+    // On static hosting like Vercel, directory indexing is disabled by default.
+    // Only attempt dynamic folder scan when running on local dev servers to prevent console 404 warnings.
+    const isLocalhost = Boolean(
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1' ||
+        window.location.hostname === '[::1]'
+    );
+
+    if (!isLocalhost) {
+        return defaultSongs;
+    }
+
     try {
         const response = await fetch('music/');
-        if (!response.ok) throw new Error("Could not fetch music directory listing");
+        if (!response.ok) return defaultSongs;
         const htmlText = await response.text();
         
         const parser = new DOMParser();
@@ -1269,24 +1288,9 @@ async function loadPlaylistFromMusicFolder() {
             }
         });
         
-        if (songs.length === 0) {
-            songs.push({
-                url: 'music/Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
-                filename: 'Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
-                title: 'Sunflower (Spider-Man: Into the Spider-Verse)',
-                artist: 'Post Malone, Swae Lee'
-            });
-        }
-        
-        return songs;
+        return songs.length > 0 ? songs : defaultSongs;
     } catch (e) {
-        console.warn("Directory listing fetch failed, falling back to static playlist:", e);
-        return [{
-            url: 'music/Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
-            filename: 'Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
-            title: 'Sunflower (Spider-Man: Into the Spider-Verse)',
-            artist: 'Post Malone, Swae Lee'
-        }];
+        return defaultSongs;
     }
 }
 
