@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadPdfBtn = document.getElementById('btn-download-pdf');
     const downloadPdfBtnBottom = document.getElementById('btn-download-resume-bottom');
     const handleDownload = () => {
-        window.open('Sanjay J resume.pdf', '_blank');
+        window.open('Sanjay resume.pdf', '_blank');
     };
     if (downloadPdfBtn) {
         downloadPdfBtn.addEventListener('click', handleDownload);
