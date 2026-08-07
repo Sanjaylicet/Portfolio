@@ -51,8 +51,8 @@ const PROJECTS_DATA = {
     "typeninja": {
         title: "TYPENINJA",
         desc: "A slick, interactive speed-typing training application. Provides real-time calculations for WPM (words per minute), keystroke accuracy percentages, visual keystroke heatmaps, and customizable lesson lengths.",
-        demo: "https://type-ninja-six.vercel.app/",
-        github: "https://github.com/Sanjaylicet",
+        demo: "https://typeninja.vercel.app/",
+        github: "https://github.com/Sanjaylicet/TypeNinja",
         tech: ["HTML5", "CSS Grid", "JS State Engine", "Typing Physics"]
     }
 };
