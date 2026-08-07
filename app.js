@@ -1260,26 +1260,26 @@ async function loadPlaylistFromMusicFolder() {
             artist: 'Post Malone, Swae Lee'
         },
         {
-            url: 'music/Hide 0.mp3',
-            filename: 'Hide 0.mp3',
-            title: 'Hide (Spider-Man: Into the Spider-Verse)',
-            artist: 'Juice WRLD, Seezyn'
+            url: 'music/Spider-Man_ Across the Spider-Verse _ _Annihilate_ by Metro Boomin x Swae Lee x Lil Wayne x Offset.mp3',
+            filename: 'Spider-Man_ Across the Spider-Verse _ _Annihilate_ by Metro Boomin x Swae Lee x Lil Wayne x Offset.mp3',
+            title: 'Annihilate (Spider-Man: Across the Spider-Verse)',
+            artist: 'Metro Boomin, Swae Lee, Lil Wayne, Offset'
         },
         {
-            url: 'music/Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video) 0.mp3',
-            filename: 'Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video) 0.mp3',
+            url: 'music/Lady Gaga, Bruno Mars - Die With A Smile.mp3',
+            filename: 'Lady Gaga, Bruno Mars - Die With A Smile.mp3',
             title: 'Die With A Smile',
             artist: 'Lady Gaga, Bruno Mars'
         },
         {
-            url: 'music/Spider-Man_ Across the Spider-Verse _ _Am I Dreaming_ Metro Boomin x A$AP Rocky x Roisee _ Lyrics 0.mp3',
-            filename: 'Spider-Man_ Across the Spider-Verse _ _Am I Dreaming_ Metro Boomin x A$AP Rocky x Roisee _ Lyrics 0.mp3',
+            url: 'music/Spider-Man_ Across the Spider-Verse _ _Am I Dreaming_ Metro Boomin x A$AP Rocky x Roisee _ .mp3',
+            filename: 'Spider-Man_ Across the Spider-Verse _ _Am I Dreaming_ Metro Boomin x A$AP Rocky x Roisee _ .mp3',
             title: 'Am I Dreaming',
             artist: 'Metro Boomin, A$AP Rocky, Roisee'
         },
         {
-            url: 'music/The Weeknd - Blinding Lights (Official Video) 0.mp3',
-            filename: 'The Weeknd - Blinding Lights (Official Video) 0.mp3',
+            url: 'music/The Weeknd - Blinding Lights.mp3',
+            filename: 'The Weeknd - Blinding Lights.mp3',
             title: 'Blinding Lights',
             artist: 'The Weeknd'
         }
