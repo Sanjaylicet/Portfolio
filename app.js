@@ -9,43 +9,43 @@ const PROJECTS_DATA = {
     "lstmpredict": {
         title: "LSTMpredict",
         desc: "Deep learning stock market forecasting system using LSTM, GRU, and Transformers. Developed during an Infosys Springboard Internship. Compares predictive efficiency across deep learning architectures and renders real-time trend charts.",
-        demo: "https://stock-trend-ai-stock-market-forecas.vercel.app/",
-        github: "https://github.com/Sanjaylicet",
+        demo: "https://sanjayinfosys.vercel.app/",
+        github: "https://github.com/Sanjaylicet/StockTrendAI-Stock-Market-Forecasting-Model",
         tech: ["LSTM", "GRU", "Transformers", "Python", "Keras", "Stock Forecast"]
     },
     "chronos-kit": {
         title: "Chronos-Kit",
         desc: "TypeScript integration SDK designed for the Hedera Hashgraph network. Streamlines transaction scheduling, chronological state transitions, ledger communication, and quick dApp prototype assembly.",
         demo: "https://chronos-kit.vercel.app/",
-        github: "https://github.com/Sanjaylicet",
+        github: "https://github.com/Sanjaylicet/Chronos-Kit",
         tech: ["TypeScript", "Hedera SDK", "Web3", "NodeJS"]
     },
     "taskops": {
         title: "TaskOps",
         desc: "Highly secure file-sharing system featuring one-time download links, end-to-end data encryption, and automated file-expiration. Secured First Place at the Kriya'25 national engineering hackathon.",
         demo: "https://taskops-one-time-file-sharing.vercel.app/",
-        github: "https://github.com/Sanjaylicet",
+        github: "https://github.com/Sanjaylicet/Taskops-One-Time-File-Sharing",
         tech: ["Next.js", "Tailwind CSS", "AES-256", "Supabase", "Hackathon Winner"]
     },
     "novavault": {
         title: "NovaVault",
         desc: "A cross-chain DeFi smart wallet unifying USDC liquidity using Circle's CCTP. Implements ENS domain routing and a unique guardian-based social recovery system that allows secure wallet recovery even after forgetting passwords.",
         demo: "https://nova-vault-ten.vercel.app/",
-        github: "https://github.com/Sanjaylicet",
+        github: "https://github.com/Sanjaylicet/NovaVault",
         tech: ["React", "Solidity", "Circle CCTP", "MPC Wallet", "Social Recovery"]
     },
     "gamepayx": {
         title: "Gamepayx",
         desc: "A decentralized gaming assets transaction store built with the Avail Nexus SDK for true cross-chain item ownership. Purchase assets on one chain and utilize them across all supported networks via Avail's DA layer.",
         demo: "https://gamepayx-j00ljy0dv-sanjay-s-projects-49dd4896.vercel.app/",
-        github: "https://github.com/Sanjaylicet",
+        github: "https://github.com/Sanjaylicet/Payx",
         tech: ["NextJS", "Avail Nexus", "Smart Contracts", "Ethers", "Cross-chain Assets"]
     },
     "zombie-invasion": {
         title: "Zombie Invasion",
         desc: "An action-packed retro 2D side-scrolling platformer survival game built from scratch using HTML5 Canvas. Fight zombie waves, gather power-ups, manage weapons, and pass through multiple difficulty stages.",
         demo: "https://sailorsanjay.itch.io/zombie-invasion",
-        github: "https://github.com/Sanjaylicet",
+        github: "https://github.com/Sanjaylicet/Zombie-Invasion-2D",
         tech: ["HTML5 Canvas", "JavaScript", "Game Physics", "Itch.io"]
     },
     "typeninja": {
