@@ -208,6 +208,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Desktop Photography Link
+    const desktopPhotography = document.getElementById('desktop-photography-link');
+    if (desktopPhotography) {
+        desktopPhotography.addEventListener('dblclick', () => {
+            window.open('https://drive.google.com/drive/folders/151144cSArk8go-_5YWoJYFOvVRHCqKzR?usp=sharing', '_blank');
+        });
+        desktopPhotography.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                window.open('https://drive.google.com/drive/folders/151144cSArk8go-_5YWoJYFOvVRHCqKzR?usp=sharing', '_blank');
+            } else {
+                desktopPhotography.focus();
+            }
+        });
+    }
+
     // Recycle bin emptier
     const emptyBinBtn = document.getElementById('btn-empty-bin');
     if (emptyBinBtn) {
@@ -645,6 +660,8 @@ function handleRunSubmit(cmd) {
         openWindow('win-my-computer');
     } else if (command === 'wmplayer' || command === 'media' || command === 'music' || command === 'player' || command === 'wmp') {
         openWindow('win-mediaplayer');
+    } else if (command === 'photography' || command === 'photos' || command === 'camera') {
+        window.open('https://drive.google.com/drive/folders/151144cSArk8go-_5YWoJYFOvVRHCqKzR?usp=sharing', '_blank');
     } else {
         // Show XP error message dialog
         alert(`Windows cannot find '${cmd}'. Make sure you typed the name correctly, and then try again.`);
@@ -1235,12 +1252,38 @@ let wmpIsPlaying = false;
 let wmpIsMuted = false;
 
 async function loadPlaylistFromMusicFolder() {
-    const defaultSongs = [{
-        url: 'music/Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
-        filename: 'Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
-        title: 'Sunflower (Spider-Man: Into the Spider-Verse)',
-        artist: 'Post Malone, Swae Lee'
-    }];
+    const defaultSongs = [
+        {
+            url: 'music/Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
+            filename: 'Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3',
+            title: 'Sunflower (Spider-Man: Into the Spider-Verse)',
+            artist: 'Post Malone, Swae Lee'
+        },
+        {
+            url: 'music/Hide 0.mp3',
+            filename: 'Hide 0.mp3',
+            title: 'Hide (Spider-Man: Into the Spider-Verse)',
+            artist: 'Juice WRLD, Seezyn'
+        },
+        {
+            url: 'music/Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video) 0.mp3',
+            filename: 'Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video) 0.mp3',
+            title: 'Die With A Smile',
+            artist: 'Lady Gaga, Bruno Mars'
+        },
+        {
+            url: 'music/Spider-Man_ Across the Spider-Verse _ _Am I Dreaming_ Metro Boomin x A$AP Rocky x Roisee _ Lyrics 0.mp3',
+            filename: 'Spider-Man_ Across the Spider-Verse _ _Am I Dreaming_ Metro Boomin x A$AP Rocky x Roisee _ Lyrics 0.mp3',
+            title: 'Am I Dreaming',
+            artist: 'Metro Boomin, A$AP Rocky, Roisee'
+        },
+        {
+            url: 'music/The Weeknd - Blinding Lights (Official Video) 0.mp3',
+            filename: 'The Weeknd - Blinding Lights (Official Video) 0.mp3',
+            title: 'Blinding Lights',
+            artist: 'The Weeknd'
+        }
+    ];
 
     // On static hosting like Vercel, directory indexing is disabled by default.
     // Only attempt dynamic folder scan when running on local dev servers to prevent console 404 warnings.
@@ -1278,6 +1321,15 @@ async function loadPlaylistFromMusicFolder() {
                     artist = parts[0].trim();
                     title = parts[1].trim();
                 }
+                
+                // Cleanup trailing numbers and brackets from dynamic filename scan
+                title = title.replace(/\s+\d+$/, "")
+                             .replace(/[\s_]*(?:\(Official\s+Music\s+Video\)|\(Official\s+Video\)|_\s*Lyrics|\s*Lyrics)\s*/gi, "")
+                             .replace(/_ _Am I Dreaming_/gi, "Am I Dreaming")
+                             .trim();
+                artist = artist.replace(/_ _Am I Dreaming_/gi, "Metro Boomin")
+                               .replace(/\s+\d+$/, "")
+                               .trim();
                 
                 songs.push({
                     url: 'music/' + href,
