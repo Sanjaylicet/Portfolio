@@ -256,8 +256,8 @@ function initDragging() {
         startX = e.clientX;
         startY = e.clientY;
         
-        winLeft = parseInt(win.style.left) || 0;
-        winTop = parseInt(win.style.top) || 0;
+        winLeft = win.offsetLeft;
+        winTop = win.offsetTop;
         
         document.body.classList.add('dragging-active');
     });
@@ -303,8 +303,8 @@ function initDragging() {
         startX = touch.clientX;
         startY = touch.clientY;
         
-        winLeft = parseInt(win.style.left) || 0;
-        winTop = parseInt(win.style.top) || 0;
+        winLeft = win.offsetLeft;
+        winTop = win.offsetTop;
     });
 
     document.addEventListener('touchmove', (e) => {
@@ -344,12 +344,27 @@ function openWindow(winId) {
     win.classList.remove('hidden');
     makeActive(win);
     
+    // Initialize starting position in pixels to prevent jumping/resizing during first drag
+    if (win.style.left && win.style.left.includes('%')) {
+        const leftPx = win.offsetLeft;
+        const topPx = win.offsetTop;
+        win.style.left = `${leftPx}px`;
+        win.style.top = `${topPx}px`;
+    }
+    
     if (!openWindows.has(winId)) {
         openWindows.add(winId);
         createTaskbarTab(winId);
     } else {
         // If minimized, restore it
         win.style.display = 'flex';
+        // Re-align position to pixels in case layout changed
+        if (win.style.left && win.style.left.includes('%')) {
+            const leftPx = win.offsetLeft;
+            const topPx = win.offsetTop;
+            win.style.left = `${leftPx}px`;
+            win.style.top = `${topPx}px`;
+        }
     }
 }
 
@@ -875,6 +890,14 @@ function openProjectWindow(projId) {
     
     // Append to container
     document.getElementById('windows-container').appendChild(win);
+    
+    // Convert percentage layout to pixels on mount to prevent drag stretching/shifting
+    if (win.style.left && win.style.left.includes('%')) {
+        const leftPx = win.offsetLeft;
+        const topPx = win.offsetTop;
+        win.style.left = `${leftPx}px`;
+        win.style.top = `${topPx}px`;
+    }
     
     // Track in state
     openWindows.add(customWinId);
