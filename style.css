@@ -2197,22 +2197,45 @@ html[data-theme="silver"] {
         -webkit-overflow-scrolling: touch !important;
     }
 
-    .start-left-pane,
-    .start-right-pane {
+    .start-left-pane {
         width: 100% !important;
         overflow-y: visible !important;
     }
 
     .start-right-pane {
+        width: 100% !important;
         border-left: none !important;
-        border-top: 1px solid rgba(0,0,0,0.12) !important;
+        border-top: 2px solid rgba(0,0,0,0.12) !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
+        padding: 8px !important;
+        box-sizing: border-box !important;
     }
 
-    .start-app-item,
-    .start-sys-item {
+    .start-app-item {
         min-height: 44px !important;
         padding: 10px 14px !important;
         font-size: 13px !important;
+    }
+
+    .start-sys-item {
+        min-height: 42px !important;
+        padding: 8px 10px !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        background: rgba(255, 255, 255, 0.6) !important;
+        border-radius: 6px !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        box-sizing: border-box !important;
+    }
+
+    .start-sys-item:active {
+        background: #316ac5 !important;
+        color: #ffffff !important;
     }
 
     .start-footer {
