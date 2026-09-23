@@ -1968,118 +1968,309 @@ html[data-theme="silver"] {
    11. Responsiveness (Mobile Viewports Support)
    ========================================================================== */
 @media screen and (max-width: 768px) {
-    /* Responsive Desktop grid for mobile */
-    .desktop-grid {
-        grid-template-rows: unset;
-        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-        grid-auto-flow: row;
-        width: calc(100vw - 40px);
-        gap: 15px;
+    /* 1. Mobile Taskbar & Tray Navigation */
+    .taskbar {
+        height: 48px !important;
     }
 
-    /* Force all windows to be full screen modal behavior on mobile */
+    #start-btn {
+        height: 40px !important;
+        padding: 0 14px !important;
+        font-size: 14px !important;
+        border-radius: 0 8px 8px 0 !important;
+        box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    #start-btn .start-icon {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .taskbar-tabs {
+        height: 48px !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-snap-type: x mandatory !important;
+        padding: 0 4px !important;
+        gap: 4px !important;
+    }
+
+    .taskbar-tab {
+        height: 38px !important;
+        min-width: 100px !important;
+        max-width: 140px !important;
+        padding: 0 10px !important;
+        font-size: 12px !important;
+        scroll-snap-align: start !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 4px 4px 0 0 !important;
+    }
+
+    .taskbar-tab.active {
+        border-top: 3px solid #ffcc00 !important;
+        background: linear-gradient(to bottom, #1e4db9 0%, #153285 100%) !important;
+        font-weight: bold !important;
+    }
+
+    .taskbar-tray {
+        height: 48px !important;
+        padding: 0 10px !important;
+        font-size: 12px !important;
+    }
+
+    /* 2. Responsive Desktop grid & touch icons for mobile */
+    .desktop {
+        height: calc(100vh - 48px) !important;
+    }
+
+    .desktop-grid {
+        grid-template-rows: unset !important;
+        grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)) !important;
+        grid-auto-flow: row !important;
+        width: calc(100vw - 20px) !important;
+        gap: 12px 6px !important;
+        padding: 10px !important;
+    }
+
+    .desktop-icon {
+        padding: 8px 4px !important;
+        border-radius: 8px !important;
+        touch-action: manipulation !important;
+    }
+
+    .desktop-icon:active {
+        transform: scale(0.94) !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .desktop-icon .icon-image img,
+    .desktop-icon .icon-image svg {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    .desktop-icon .icon-label {
+        font-size: 12px !important;
+        line-height: 1.25 !important;
+        margin-top: 4px !important;
+        font-weight: 600 !important;
+    }
+
+    /* 3. Mobile Windows & Modal Headers */
     .xp-window {
         top: 0 !important;
         left: 0 !important;
         width: 100vw !important;
-        height: calc(100vh - 40px) !important;
+        height: calc(100vh - 48px) !important;
         border: none !important;
         border-radius: 0 !important;
+        box-shadow: none !important;
     }
 
     .xp-window-title-bar {
-        cursor: default; /* Disable dragging indicator on mobile */
+        height: 40px !important;
+        padding: 0 10px !important;
+        cursor: default !important;
+    }
+
+    .xp-window-title {
+        font-size: 14px !important;
+        font-weight: bold !important;
+    }
+
+    .xp-window-controls button {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 14px !important;
+        border-radius: 4px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .xp-btn-maximize {
-        display: none !important; /* Hide maximize button on mobile since they are always maximized */
+        display: none !important; /* Hide maximize button on mobile since windows are full screen */
     }
 
-    /* Sidebar columns split in Computer and Explorer collapse */
+    .xp-window-body {
+        height: calc(100vh - 48px - 40px) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* 4. Sidebar & Layout adjustments */
     .computer-info-layout {
-        flex-direction: column;
+        flex-direction: column !important;
     }
 
     .computer-sidebar {
-        width: 100%;
-        height: 60px;
-        flex-direction: row;
-        gap: 8px;
-        padding: 5px;
-        overflow-x: auto;
-        overflow-y: hidden;
+        width: 100% !important;
+        height: auto !important;
+        max-height: 70px !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        padding: 6px !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
     }
     
     .sidebar-box {
-        padding: 4px;
-        white-space: nowrap;
-        margin-bottom: 0;
+        padding: 6px 10px !important;
+        white-space: nowrap !important;
+        margin-bottom: 0 !important;
+        border-radius: 6px !important;
     }
 
     .sidebar-list {
-        flex-direction: row;
-        gap: 8px;
+        flex-direction: row !important;
+        gap: 8px !important;
     }
 
     .explorer-layout {
-        flex-direction: column;
+        flex-direction: column !important;
     }
 
     .explorer-sidebar {
-        display: none; /* Hide sidebar in folder explorer on mobile to save space */
+        display: none !important;
     }
 
-    /* Start menu adjustments */
+    .folder-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) !important;
+        gap: 12px !important;
+        padding: 12px !important;
+    }
+
+    /* 5. Project Detail Modal Mobile UX */
+    .project-detail-modal {
+        width: 100vw !important;
+        height: calc(100vh - 48px) !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    .project-tabs-bar {
+        padding: 4px 6px 0 !important;
+        gap: 4px !important;
+    }
+
+    .project-tab-btn {
+        flex: 1 !important;
+        padding: 10px 6px !important;
+        font-size: 13px !important;
+        text-align: center !important;
+        font-weight: bold !important;
+    }
+
+    .project-action-buttons {
+        flex-direction: column !important;
+        gap: 8px !important;
+        margin-top: 15px !important;
+    }
+
+    .project-action-buttons .xp-btn {
+        width: 100% !important;
+        min-height: 44px !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+        border-radius: 6px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* 6. Start menu mobile drawer adjustments */
     .start-menu {
-        width: 100vw;
-        max-width: 100vw;
-        height: calc(100vh - 40px);
-        bottom: 40px;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: calc(100vh - 48px) !important;
+        bottom: 48px !important;
+        border-radius: 0 !important;
+        border: none !important;
     }
 
     .start-body {
-        flex-direction: column;
-        overflow-y: auto;
+        flex-direction: column !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
     }
 
-    .start-left-pane {
-        width: 100%;
-        overflow-y: visible;
+    .start-left-pane,
+    .start-right-pane {
+        width: 100% !important;
+        overflow-y: visible !important;
     }
 
     .start-right-pane {
-        width: 100%;
-        border-left: none;
-        border-top: 1px solid rgba(0,0,0,0.1);
-        overflow-y: visible;
+        border-left: none !important;
+        border-top: 1px solid rgba(0,0,0,0.12) !important;
+    }
+
+    .start-app-item,
+    .start-sys-item {
+        min-height: 44px !important;
+        padding: 10px 14px !important;
+        font-size: 13px !important;
     }
 
     .start-footer {
-        justify-content: space-between;
+        height: 48px !important;
+        padding: 0 16px !important;
+        justify-content: space-between !important;
     }
 
-    /* Calendar size adjustments on mobile */
+    .start-footer .start-power-btn {
+        height: 38px !important;
+        padding: 0 16px !important;
+        font-size: 13px !important;
+        font-weight: bold !important;
+    }
+
+    /* 7. Calendar size adjustments on mobile */
     .calendar-win {
-        bottom: 40px !important;
+        bottom: 48px !important;
         right: 0 !important;
         left: 0 !important;
         width: 100vw !important;
-        height: calc(100vh - 40px) !important;
+        height: calc(100vh - 48px) !important;
     }
 
-    /* WordPad Page padding for mobile */
+    /* 8. WordPad Page padding & Mobile Resume Download Bar */
     .wordpad-page {
-        padding: 15px;
-        margin: 0;
-        box-shadow: none;
-        min-height: auto;
+        padding: 15px !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        min-height: auto !important;
     }
 
     .wordpad-header h1 {
-        font-size: 18px;
+        font-size: 18px !important;
+    }
+
+    .mobile-resume-download-bar {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+        padding: 12px 16px !important;
+        margin-bottom: 15px !important;
+        background: linear-gradient(to bottom, #2b70e4 0%, #0054e3 100%) !important;
+        color: #ffffff !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+        border: 1px solid #003bbb !important;
+        border-radius: 6px !important;
+        box-shadow: 0 3px 8px rgba(0, 84, 227, 0.4) !important;
+        cursor: pointer !important;
+        touch-action: manipulation !important;
+    }
+
+    .mobile-resume-download-bar:active {
+        transform: scale(0.98) !important;
+        background: #003bbb !important;
     }
 }
 

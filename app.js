@@ -153,14 +153,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // File downloads (Resume Wordpad PDF download)
     const downloadPdfBtn = document.getElementById('btn-download-pdf');
     const downloadPdfBtnBottom = document.getElementById('btn-download-resume-bottom');
+    const downloadPdfBtnMobile = document.getElementById('btn-download-pdf-mobile');
     const handleDownload = () => {
-        window.open('Sanjay resume.pdf', '_blank');
+        window.open('SANJAY JAYACHANDRAN.pdf', '_blank');
     };
     if (downloadPdfBtn) {
         downloadPdfBtn.addEventListener('click', handleDownload);
     }
     if (downloadPdfBtnBottom) {
         downloadPdfBtnBottom.addEventListener('click', handleDownload);
+    }
+    if (downloadPdfBtnMobile) {
+        downloadPdfBtnMobile.addEventListener('click', handleDownload);
     }
     
     // Outlook run button
