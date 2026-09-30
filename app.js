@@ -54,6 +54,13 @@ const PROJECTS_DATA = {
         demo: "https://typeninja.vercel.app/",
         github: "https://github.com/Sanjaylicet/TypeNinja",
         tech: ["HTML5", "CSS Grid", "JS State Engine", "Typing Physics"]
+    },
+    "chainguard": {
+        title: "ChainGuard Lite",
+        desc: "Testnet-only AI-assisted crypto safety screening powered by The Graph and Hedera x402 agentic payments. Features pay-per-report API, deterministic risk engine, and AI report generation.",
+        demo: "https://chainguardeth.vercel.app/",
+        github: "https://github.com/Sanjaylicet/ChainGuard",
+        tech: ["React", "The Graph", "Hedera x402", "Node.js", "AI / LLM", "Express"]
     }
 };
 

@@ -18,7 +18,7 @@ Double-clicking on desktop icons (or single-tapping on mobile) launches classic 
 *   **My Computer:** Shows system specifications, owner information, and current academic path.
 *   **Internet Explorer:** Launches an external shortcut directly to Sanjay J's official GitHub Profile page.
 *   **Sanjay J Resume:** Opens a custom WordPad text editor window displaying full resume contents and a retro **Download PDF** button.
-*   **My Projects:** Opens an Explorer-style folder displaying individual subfolders for each project (LSTMpredict, Chronos-Kit, TaskOps, NovaVault, Gamepayx, Zombie Invasion, TYPENINJA). Double-clicking a subfolder opens a customized Properties modal showing details and repository buttons.
+*   **My Projects:** Opens an Explorer-style folder displaying individual subfolders for each project (LSTMpredict, Chronos-Kit, TaskOps, NovaVault, Gamepayx, Zombie Invasion, TYPENINJA, ChainGuard Lite). Double-clicking a subfolder opens a customized Properties modal showing details and repository buttons.
 *   **Control Panel:** Hosts a customization engine enabling users to change the taskbar and window color scheme in real time (Classic Blue, Olive Green, Silver).
 *   **Minesweeper:** Launches a classic Minesweeper puzzle game.
 *   **Recycle Bin:** Opens the recycle bin file drawer. Users can click "Empty Recycle Bin" to purge files, updating system states.
